@@ -6,7 +6,7 @@ import 'package:consumo_api/models/endereco.dart';
 class Aluno {
   final String id;
   final String nome;
-  final int idade;
+  final int? idade;
   final List<String> nomeCursos;
   final Endereco endereco;
   final List<Curso> cursos;
@@ -14,7 +14,7 @@ class Aluno {
   Aluno({
     required this.id,
     required this.nome,
-    required this.idade,
+    this.idade,
     required this.nomeCursos,
     required this.endereco,
     required this.cursos,
@@ -33,10 +33,10 @@ class Aluno {
 
   factory Aluno.fromMap(Map<String, dynamic> map) {
     return Aluno(
-      id: map["id"],
-      nome: map["nome"],
-      idade: map["idade"],
-      nomeCursos: map["nomeCursos"],
+      id: map["id"] ?? "",
+      nome: map["nome"] ?? "",
+      idade: map["idade"], //idade aceita nulo
+      nomeCursos: map["nomeCursos"] ?? [],
       endereco: Endereco.fromMap(map["endereco"]),
       cursos: map["cursos"].map<Curso>((cursoMap) => Curso.fromMap(cursoMap)).toList(),
     );
