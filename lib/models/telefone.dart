@@ -1,3 +1,4 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:convert';
 
 class Telefone {
@@ -32,4 +33,7 @@ class Telefone {
   //primeiro fazendo o decode do json de string para um map, depois chamando
   //o método fromMap para transformar em um objeto telefone
   factory Telefone.fromJson(String json) => Telefone.fromMap(jsonDecode(json));
+
+  @override
+  String toString() => 'Telefone: ($ddd) $numero';
 }

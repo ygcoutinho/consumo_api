@@ -1,3 +1,4 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:convert';
 
 class Cidade {
@@ -31,4 +32,7 @@ class Cidade {
   //transformando o json em um map, para que o método fromMap da classe
   //possa transformar o map em objeto
   factory Cidade.fromJson(String json) => Cidade.fromMap(jsonDecode(json));
+
+  @override
+  String toString() => '''Cidade: $nome''';
 }

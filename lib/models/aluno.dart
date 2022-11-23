@@ -50,11 +50,11 @@ class Aluno {
   @override
   String toString() {
     return '''Aluno: 
-                id: $id, 
-                nome: $nome, 
-                idade: $idade, 
-                nomeCursos: $nomeCursos, 
-                endereco: $endereco, 
-                cursos: $cursos)''';
+                id: $id
+                nome: $nome
+                idade: $idade
+                nomeCursos: $nomeCursos
+                endereco: $endereco
+                cursos: $cursos''';
   }
 }

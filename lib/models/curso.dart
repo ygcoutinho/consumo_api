@@ -1,3 +1,4 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:convert';
 
 class Curso {
@@ -30,4 +31,10 @@ class Curso {
 
   //cria um objeto da classe a partir de um json que será convertido em map
   factory Curso.fromJson(String json) => Curso.fromMap(jsonDecode(json));
+
+  @override
+  String toString() => '''Curso:
+                            id: $id 
+                            nome: $nome
+                            isAluno: $isAluno''';
 }
