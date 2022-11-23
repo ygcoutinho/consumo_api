@@ -10,8 +10,20 @@ class AlunosController {
     alunos.forEach(print);
   }
 
-  Future<void> findById(String id) async {
+  Future<Aluno> findById(String id) async {
     Aluno aluno = await _alunosRepository.findById(id);
     print(aluno);
+    return aluno;
+  }
+
+  Future<void> update(Aluno aluno) async {
+    try {
+      await _alunosRepository.update(aluno);
+    } catch (e) {
+      print("$e: Erro ao tentar atualizar");
+    } finally {
+      print("### Dados atualizados ###");
+      print(aluno);
+    }
   }
 }
