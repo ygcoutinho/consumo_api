@@ -1,3 +1,4 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:convert';
 
 import 'package:consumo_api/models/curso.dart';
@@ -36,7 +37,7 @@ class Aluno {
       id: map["id"] ?? "",
       nome: map["nome"] ?? "",
       idade: map["idade"], //idade aceita nulo
-      nomeCursos: map["nomeCursos"] ?? [],
+      nomeCursos: List<String>.from(map["nomeCursos"]),
       endereco: Endereco.fromMap(map["endereco"]),
       cursos: map["cursos"].map<Curso>((cursoMap) => Curso.fromMap(cursoMap)).toList(),
     );
@@ -45,4 +46,15 @@ class Aluno {
   String toJson() => jsonEncode(toMap());
 
   factory Aluno.fromJson(String json) => Aluno.fromMap(jsonDecode(json));
+
+  @override
+  String toString() {
+    return '''Aluno: 
+                id: $id, 
+                nome: $nome, 
+                idade: $idade, 
+                nomeCursos: $nomeCursos, 
+                endereco: $endereco, 
+                cursos: $cursos)''';
+  }
 }
