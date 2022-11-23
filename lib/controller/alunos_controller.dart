@@ -9,4 +9,9 @@ class AlunosController {
 
     alunos.forEach(print);
   }
+
+  Future<void> findById(String id) async {
+    Aluno aluno = await _alunosRepository.findById(id);
+    print(aluno);
+  }
 }

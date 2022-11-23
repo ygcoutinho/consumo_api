@@ -11,4 +11,10 @@ class AlunosRepository {
 
     return alunosList.map<Aluno>((aluno) => Aluno.fromMap(aluno)).toList();
   }
+
+  Future<Aluno> findById(String id) async {
+    String url = "http://localhost:3031/alunos/$id";
+    final response = await http.get(Uri.parse(url));
+    return Aluno.fromMap(jsonDecode(response.body));
+  }
 }
