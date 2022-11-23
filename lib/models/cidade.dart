@@ -34,5 +34,5 @@ class Cidade {
   factory Cidade.fromJson(String json) => Cidade.fromMap(jsonDecode(json));
 
   @override
-  String toString() => '''Cidade: $nome''';
+  String toString() => nome;
 }

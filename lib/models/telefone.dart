@@ -3,18 +3,18 @@ import 'dart:convert';
 
 class Telefone {
   final int ddd;
-  final String numero;
+  final String telefone;
 
   Telefone({
     required this.ddd,
-    required this.numero,
+    required this.telefone,
   });
 
   // é um método que pega o objeto (telefone) e transforma em um Map<String, dynamic>
   Map<String, dynamic> toMap() {
     return {
       "ddd": ddd,
-      "numero": numero,
+      "telefone": telefone,
     };
   }
 
@@ -22,7 +22,7 @@ class Telefone {
   factory Telefone.fromMap(Map<String, dynamic> map) {
     return Telefone(
       ddd: map["ddd"] ?? 0,
-      numero: map["numero"] ?? "",
+      telefone: map["telefone"] ?? "",
     );
   }
 
@@ -35,5 +35,5 @@ class Telefone {
   factory Telefone.fromJson(String json) => Telefone.fromMap(jsonDecode(json));
 
   @override
-  String toString() => 'Telefone: ($ddd) $numero';
+  String toString() => "($ddd) $telefone";
 }

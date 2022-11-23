@@ -45,8 +45,7 @@ class Endereco {
 
   @override
   String toString() {
-    return '''Endereco:
-                rua: $rua, $numero 
+    return '''  rua: $rua, $numero 
                 cep: $cep 
                 cidade: $cidade 
                 telefone: $telefone''';
