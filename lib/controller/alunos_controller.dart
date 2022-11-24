@@ -15,14 +15,14 @@ class AlunosController {
     return aluno;
   }
 
-  Future<void> update(Aluno aluno) async {
-    try {
-      await _alunosRepository.update(aluno);
-    } catch (e) {
-      print("$e: Erro ao tentar atualizar");
-    } finally {
-      print("### Dados atualizados ###");
-      print(aluno);
-    }
+  void update(Aluno aluno) async {
+    await _alunosRepository.update(aluno);
+    print("### Dados atualizados ###");
+    print(aluno);
+  }
+
+  void insert(Aluno aluno) async {
+    await _alunosRepository.insert(aluno);
+    print("Aluno inserido com sucesso");
   }
 }

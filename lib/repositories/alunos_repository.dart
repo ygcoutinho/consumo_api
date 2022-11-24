@@ -40,4 +40,17 @@ class AlunosRepository {
       print("$e : Erro ao atualizar dados");
     }
   }
+
+  //Inserção
+  Future<void> insert(Aluno aluno) async {
+    try {
+      http.put(
+        Uri.parse(url),
+        headers: {"Content-Type": "application/json"},
+        body: aluno.toJson(),
+      );
+    } catch (e) {
+      print("$e : Erro ao tentar inserir dados");
+    }
+  }
 }
