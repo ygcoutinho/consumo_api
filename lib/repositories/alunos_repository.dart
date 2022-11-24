@@ -4,28 +4,40 @@ import 'package:consumo_api/models/aluno.dart';
 import 'package:http/http.dart' as http;
 
 class AlunosRepository {
-  //Busca
-  Future<List<Aluno>> findAll() async {
-    String url = "http://localhost:3031/alunos";
-    final response = await http.get(Uri.parse(url));
-    final alunosList = jsonDecode(response.body) as List;
+  String url = "http://localhost:3031/alunos";
 
-    return alunosList.map<Aluno>((aluno) => Aluno.fromMap(aluno)).toList();
+  //Busca
+  Future<List<Aluno>?> findAll() async {
+    try {
+      final response = await http.get(Uri.parse(url));
+      final alunosList = jsonDecode(response.body) as List;
+      return alunosList.map<Aluno>((aluno) => Aluno.fromMap(aluno)).toList();
+    } catch (e) {
+      print("$e : Não foi possível acessar os dados.");
+      return null;
+    }
   }
 
-  Future<Aluno> findById(String id) async {
-    String url = "http://localhost:3031/alunos/$id";
-    final response = await http.get(Uri.parse(url));
-    return Aluno.fromMap(jsonDecode(response.body));
+  Future<Aluno?> findById(String id) async {
+    try {
+      final response = await http.get(Uri.parse("$url/$id"));
+      return Aluno.fromMap(jsonDecode(response.body));
+    } catch (e) {
+      print("$e : Não foi possível acessar os dados.");
+      return null;
+    }
   }
 
   //Atualização
   Future<void> update(Aluno aluno) async {
-    String url = "http://localhost:3031/alunos/${aluno.id}";
-    await http.put(
-      Uri.parse(url),
-      headers: {"Content-Type": "application/json"},
-      body: aluno.toJson(),
-    );
+    try {
+      await http.put(
+        Uri.parse("$url/${aluno.id}"),
+        headers: {"Content-Type": "application/json"},
+        body: aluno.toJson(),
+      );
+    } catch (e) {
+      print("$e : Erro ao atualizar dados");
+    }
   }
 }
