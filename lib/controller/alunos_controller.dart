@@ -23,6 +23,6 @@ class AlunosController {
 
   void insert(Aluno aluno) async {
     await _alunosRepository.insert(aluno);
-    print("Aluno inserido com sucesso");
+    //print("Aluno inserido com sucesso");
   }
 }

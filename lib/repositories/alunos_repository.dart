@@ -44,7 +44,8 @@ class AlunosRepository {
   //Inserção
   Future<void> insert(Aluno aluno) async {
     try {
-      http.put(
+      print(url);
+      await http.post(
         Uri.parse(url),
         headers: {"Content-Type": "application/json"},
         body: aluno.toJson(),
