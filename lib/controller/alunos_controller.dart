@@ -17,12 +17,13 @@ class AlunosController {
 
   void update(Aluno aluno) async {
     await _alunosRepository.update(aluno);
-    print("### Dados atualizados ###");
-    print(aluno);
   }
 
   void insert(Aluno aluno) async {
     await _alunosRepository.insert(aluno);
-    //print("Aluno inserido com sucesso");
+  }
+
+  void delete(String id) async {
+    await _alunosRepository.delete(id);
   }
 }

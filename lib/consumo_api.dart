@@ -36,6 +36,7 @@ Future<void> main() async {
   );
   //print(novoAluno);
 
-  alunosController.insert(novoAluno);
+  //alunosController.insert(novoAluno);
   //alunosController.findById("b702ca70-6ba6-11ed-a57b-a16390579d57");
+  alunosController.delete("b702ca70-6ba6-11ed-a57b-a16390579d57");
 }

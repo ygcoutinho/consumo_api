@@ -44,7 +44,6 @@ class AlunosRepository {
   //Inserção
   Future<void> insert(Aluno aluno) async {
     try {
-      print(url);
       await http.post(
         Uri.parse(url),
         headers: {"Content-Type": "application/json"},
@@ -52,6 +51,15 @@ class AlunosRepository {
       );
     } catch (e) {
       print("$e : Erro ao tentar inserir dados");
+    }
+  }
+
+  //Remoção
+  Future<void> delete(String id) async {
+    try {
+      await http.delete(Uri.parse("$url/$id"));
+    } catch (e) {
+      print("$e : Erro ao tentar deletar");
     }
   }
 }
