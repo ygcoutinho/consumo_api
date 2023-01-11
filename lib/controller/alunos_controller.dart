@@ -15,15 +15,15 @@ class AlunosController {
     return aluno;
   }
 
-  void update(Aluno aluno) async {
+  Future<void> update(Aluno aluno) async {
     await _alunosRepository.update(aluno);
   }
 
-  void insert(Aluno aluno) async {
+  Future<void> insert(Aluno aluno) async {
     await _alunosRepository.insert(aluno);
   }
 
-  void delete(String id) async {
+  Future<void> delete(String id) async {
     await _alunosRepository.delete(id);
   }
 }
